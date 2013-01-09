@@ -96,8 +96,8 @@ public class PearsonHSCTests {
 	   public static Collection<Object[]> data() {
 	   
 	  //Object[][] data = new Object[][] {{"1"},{"2"},{"3"},{"4"},{"5"},{"6"}};
-	Object[][] data = new Object[][] {{"2"},{"3"},{"4"},{"6"}};
-	 // Object[][] data = new Object[][] {{"6"}};
+	//Object[][] data = new Object[][] {{"2"},{"3"},{"4"},{"6"}};
+	  Object[][] data = new Object[][] {{"2"}};
 	    return Arrays.asList(data);
 
 	   }
