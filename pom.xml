@@ -55,21 +55,8 @@
   		</repository>
         
     </repositories>
-     <ciManagement>
-    <system>continuum</system>
-     <notifiers>
-      <notifier>
-        <type>mail</type>
-        <sendOnError>true</sendOnError>
-        <sendOnFailure>true</sendOnFailure>
-        <sendOnSuccess>true</sendOnSuccess>
-        <sendOnWarning>false</sendOnWarning>
-        <configuration><address>anil.dani@comprotechnologies.com</address></configuration>
-      </notifier>
-    </notifiers>
-  </ciManagement>
   <build>
-  <plugins>
+     <plugins>
   <plugin>
   	      <groupId>org.apache.maven.plugins</groupId>
   	      <artifactId>maven-site-plugin</artifactId>
@@ -82,10 +69,10 @@
   	            <version>2.6</version>
   	            <configuration>
       <includes>
-      	<include>testautomation/testcases/FacebookPearsonHSCTests.java</include>
+      	<include>testautomation/testcases/PearsonHSCTests.java</include>
       </includes>
       <excludes>
-      	<exclude>testautomation/testcases/PearsonHSCTests.java</exclude>
+      	<exclude>testautomation/testcases/FacebookPearsonHSCTests.java</exclude>
       	<exclude>testautomation/testcases/MultiBrowserTests.java</exclude>
 </excludes>
           <parallel>methods</parallel>
@@ -106,10 +93,10 @@
       <version>2.5</version>
       <configuration>
        <includes>
-            	<include>testautomation/testcases/FacebookPearsonHSCTests.java</include>
+            	<include>testautomation/testcases/PearsonHSCTests.java</include>
             </includes>
             <excludes>
-            	<exclude>testautomation/testcases/PearsonHSCTests.java</exclude>
+            	<exclude>testautomation/testcases/FacebookPearsonHSCTests.java</exclude>
             	<exclude>testautomation/testcases/MultiBrowserTests.java</exclude>
 </excludes>
           <parallel>methods</parallel>
