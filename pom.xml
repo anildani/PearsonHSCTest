@@ -61,6 +61,33 @@
   	      <groupId>org.apache.maven.plugins</groupId>
   	      <artifactId>maven-site-plugin</artifactId>
   	      <version>3.1</version>
+  	      <executions>
+  <execution>
+   <phase>test</phase>
+       <goals>
+    <goal>announcement-generate</goal>
+       </goals>
+   <id>announcement-generate</id>
+  </execution>
+  <execution>
+       <phase>test</phase>
+       <goals>
+    <goal>announcement-mail</goal>
+       </goals>
+       <id>announcement-mail</id>
+  </execution>
+ </executions>
+ <smtpHost>smtp.gmail.com</smtpHost>
+  <smtpPort implementation="java.lang.Integer">587</smtpPort>
+  <mailSender>
+       <name>Piyush Mehta</name>
+       <email>piyush.mehta@comprotechnologies.com</email>
+  </mailSender>
+  <toAddresses>
+       <toAddress implementation="java.lang.String">anil.dani@comprotechnologies.com</toAddress>
+  </toAddresses>
+  <introduction> This is a notification email that the ${project.version} build of ${project.name} has been code reviewed and deployed to Repository. Change list can be viewed on ${project.url}/changes-report.html</introduction>
+  </configuration>
   	      <configuration>
   	        <reportPlugins>
   	          <plugin>
@@ -103,7 +130,7 @@
         <threadCount>5</threadCount>
       </configuration>
    	</plugin>
-  	  </plugins>
+   	 </plugins>
   	  <resources>
          <resource>
            <directory>${basedir}/src/main/resources</directory>
