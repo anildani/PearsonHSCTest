@@ -118,6 +118,7 @@
                                 <subject>test done</subject>
                                 <failonerror>false</failonerror>
                                 <mailhost>smtp.gmail.com</mailhost>
+                                <mailport>587</mailport>
                                 <mailuser>piyush.mehta</mailuser>
                                 <mailpassword>pmehta</mailpassword>
                                 <receivers>
