@@ -78,7 +78,7 @@ public class PearsonHSCTests {
 		}
 		
 	public static int index=0;
-	private static String browserchoice;
+	private String browserchoice;
 //	@RunWith(Parameterized.class)
 //	public class TestGoogleBase extends SeleneseTestBase {
 	   
