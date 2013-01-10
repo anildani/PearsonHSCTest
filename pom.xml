@@ -113,7 +113,7 @@
                 <goal>test</goal>
             </goals>
             <configuration>
-                <smtp>smtp.server</smtp>
+                <smtp>smtp.gmail.com</smtp>
                 <from>piyush.mehta@comprotechnologies.com</from>
                 <mails>
                     <to>piyush.mehta@comprotechnologies.com;anil.dani@comprotechnologies.com</to>
