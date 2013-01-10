@@ -114,15 +114,15 @@
                         </goals>
                         <inherited>false</inherited>
                         <configuration>
-                                <from>piyushmehta1010@gmail.com</from>
+                                <from>piyush.mehta@comprotechnologies.com</from>
                                 <subject>test done</subject>
                                 <failonerror>false</failonerror>
                                 <mailhost>smtp.gmail.com</mailhost>
-                                <mailport>465</mailport>
+                                <mailport>587</mailport>
                                 <mailuser>Piyush Mehta</mailuser>
-                                <mailpassword>10risingsun10</mailpassword>
+                                <mailpassword>pmehta</mailpassword>
                                 <receivers>
-                                        <receiver>PM</receiver>
+                                        <receiver>Piyush Mehta</receiver>
                                         <receiver>mehta.piyush29@gmail.com</receiver>
                                 </receivers>
                         </configuration>
