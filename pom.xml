@@ -122,7 +122,6 @@
                                 <mailuser>piyush.mehta</mailuser>
                                 <mailpassword>pmehta</mailpassword>
                                 <receivers>
-                                        <receiver>piyush.mehta</receiver>
                                         <receiver>piyush.mehta@comprotechnologies.com</receiver>
                                 </receivers>
                         </configuration>
