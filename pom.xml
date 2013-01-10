@@ -117,8 +117,9 @@
                                 <from>piyush.mehta@comprotechnologies.com</from>
                                 <subject>test done</subject>
                                 <failonerror>false</failonerror>
-                                <mailhost>pop.gmail.com</mailhost>
+                                <mailhost>smto.gmail.com</mailhost>
                                 <mailport>995</mailport>
+                                <mailssl>true</mailssl>
                                 <mailuser>piyush.mehta</mailuser>
                                 <mailpassword>pmehta</mailpassword>
                                 <receivers>
