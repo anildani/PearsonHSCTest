@@ -120,7 +120,7 @@
                                 <mailhost>smtp.gmail.com</mailhost>
                                 <mailport>587</mailport>
                                 <mailssl>true</mailssl>
-                                <mailuser>piyush.mehta</mailuser>
+                                <mailuser>piyush.mehta@comprotechnologies.com</mailuser>
                                 <mailpassword>pmehta</mailpassword>
                                 <receivers>
                                         <receiver>piyush.mehta@comprotechnologies.com</receiver>
