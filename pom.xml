@@ -102,33 +102,7 @@
         <threadCount>5</threadCount>
       </configuration>
    	</plugin>
-	<plugin>
-        <groupId>ch.fortysix</groupId>
-        <artifactId>maven-postman-plugin</artifactId>
-        <executions>
-                <execution>
-                        <id>send a mail</id>
-                        <phase>test</phase>
-                        <goals>
-                                <goal>send-mail</goal>
-                        </goals>
-                        <inherited>false</inherited>
-                        <configuration>
-                                <from>piyush.mehta@comprotechnologies.com</from>
-                                <subject>test done</subject>
-                                <failonerror>false</failonerror>
-                                <mailhost>smtp.gmail.com</mailhost>
-                                <mailport>465</mailport>
-                                <mailssl>true</mailssl>
-                                <mailuser>piyush.mehta@comprotechnologies.com</mailuser>
-                                <mailpassword>pmehta</mailpassword>
-                                <receivers>
-                                        <receiver>piyush.mehta@comprotechnologies.com</receiver>
-                                </receivers>
-                        </configuration>
-                </execution>
-        </executions>
-</plugin>
+
 	
    	 </plugins>
   	  <resources>
