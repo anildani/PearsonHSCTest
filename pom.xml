@@ -110,7 +110,7 @@
         <execution>
             <phase>test</phase>
             <goals>
-                <goal>test</goal>
+                <goal>send</goal>
             </goals>
             <configuration>
                 <smtp>smtp.gmail.com</smtp>
