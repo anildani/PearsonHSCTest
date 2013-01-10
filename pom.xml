@@ -108,9 +108,9 @@
     <version>0.2.5</version>
     <executions>
         <execution>
-            <phase>phase</phase>
+            <phase>test</phase>
             <goals>
-                <goal>install</goal>
+                <goal>run</goal>
             </goals>
             <configuration>
                 <smtp>smtp.gmail.com</smtp>
