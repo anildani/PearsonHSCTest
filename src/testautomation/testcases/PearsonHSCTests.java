@@ -290,7 +290,7 @@ public class PearsonHSCTests {
 		driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
 
 		synchronized (driver) {
-			driver.wait(4000);}
+			driver.wait(7000);}
 		//*******************************************************************************************************
 		//********************************************************End of Test 1***********************************************
 		}
@@ -509,7 +509,7 @@ public class PearsonHSCTests {
 		flash5.click();
 
 		synchronized (driver) {
-			driver.wait(2000);}
+			driver.wait(5000);}
 		//Verify question text of second question.
 		WebElement questiontext1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div[2]/h2/span"));
 		String str_questiontextone = questiontext1.getText();
@@ -604,7 +604,7 @@ public class PearsonHSCTests {
 			driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
 
 			synchronized (driver) {
-				driver.wait(4000);}
+				driver.wait(7000);}
 			//********************************************************************************
 		//***********************************End of Facebook Test***********************************
 		}
