@@ -199,7 +199,7 @@ public class PearsonHSCTests {
 		//Waiting for Question2 to appear
 		synchronized (driver)
 		{
-			driver.wait(2000);
+			driver.wait(5000);
 		}
 
 
