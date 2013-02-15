@@ -604,7 +604,7 @@ public class PearsonHSCTests {
 			driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
 
 			synchronized (driver) {
-				driver.wait(7000);}
+				driver.wait(10000);}
 			//********************************************************************************
 		//***********************************End of Facebook Test***********************************
 		}
