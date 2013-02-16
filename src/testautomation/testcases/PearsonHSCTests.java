@@ -35,7 +35,7 @@ public class PearsonHSCTests {
 	private RemoteWebDriver driver = null;
 	//static WebDriver driver;
 	Process process=null;
-	public static String testresult="";
+	public static String testresult="";	
  	public PearsonHSCTests(String opt){
 		browserchoice=opt;
 		// System.out.println("opt"+opt);
@@ -534,12 +534,12 @@ public class PearsonHSCTests {
 		/*
 		//Verify question text of second question.
 		WebElement questiontext1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div[2]/h2/span"));
-		//WebElement questiontext1 = driver.findElement(By.xpath("//div[@id=\"body-set\"]/div[2]/h2/span"));
+		//WebElement questiontext1 = driver.findElement(By.xpath("//div[@id=\"body-set\"]/div[2]/h2/span"));		
 		String str_questiontextone = questiontext1.getText();
 		System.out.println("Question Text2 = "+str_questiontextone);
 		AssertionTest.assertjob(driver, str_questiontextone, "What author from McGraw-Hill should you be targeting?");
 		*/
-
+		
 		//Click on Next button to move Q#3
 		WebElement flash6 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
 		flash6.click();
@@ -633,9 +633,11 @@ public class PearsonHSCTests {
 		//***********************************End of Facebook Test***********************************
 		}
 @AfterClass
-	public static void output()
+	public static void output() 
 	{
-		 System.out.println(testresult);
+		System.out.println("TEST Name\tO.S.\tBrowser\tSauce Lab URL\n"); 
+		System.out.println(testresult);
+		 /*
 		 File f=new File("Result(Spreadsheet compatible).txt");
 
 	        StringBuffer sb = new StringBuffer("TEST Name\tO.S.\tBrowser\tSauce Lab URL\n");
@@ -648,6 +650,7 @@ public class PearsonHSCTests {
 	        catch (Exception e){
 	              e.printStackTrace();
 	         }
+	         */
 	 }
 
 }
