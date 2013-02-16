@@ -1,12 +1,17 @@
 package testautomation.testcases;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,6 +21,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import com.opera.core.systems.scope.protos.SelftestProtos.SelftestResult.Result;
+
 import testautomation.framework.AssertionTest;
 import testautomation.framework.LogGenerator;
 import testautomation.framework.SetupDriver;
@@ -27,14 +35,15 @@ public class PearsonHSCTests {
 	private RemoteWebDriver driver = null;
 	//static WebDriver driver;
 	Process process=null;
-	public PearsonHSCTests(String opt){
+	public static String testresult="";	
+ 	public PearsonHSCTests(String opt){
 		browserchoice=opt;
 		// System.out.println("opt"+opt);
 	  }
 	@Parameters
 	public static Collection<Object[]> data() {
 		   //Object[][] data = new Object[][] {{"1"},{"2"},{"3"},{"4"},{"5"},{"6"}};
-		  	//Object[][] data = new Object[][] {{"4"}};
+		  	//Object[][] data = new Object[][] {{"2"},{"3"}};
 		   Object[][] data = new Object[][] {{"2"},{"3"},{"4"},{"6"}};
 		   return Arrays.asList(data);
 	   }
@@ -65,7 +74,8 @@ public class PearsonHSCTests {
 		String broswername1=driver.getCapabilities().getBrowserName();
 		String browserversion1=driver.getCapabilities().getVersion();
 		String jobid1=driver.getSessionId().toString();
-		System.out.println("TEST O.S. Browser Version Jobid=\tPearsonHSC\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1);		 
+		//System.out.println("TEST O.S. Browser Version Jobid=\tPearsonHSC\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1);
+		testresult=testresult+"PearsonHSC\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1+"\n";
 		driver.findElement(By.name("j_username")).clear();
 		driver.findElement(By.name("j_username")).sendKeys("hsc");
 		driver.findElement(By.name("j_password")).clear();
@@ -309,7 +319,8 @@ public class PearsonHSCTests {
 	String broswername1=driver.getCapabilities().getBrowserName();
 	String browserversion1=driver.getCapabilities().getVersion();
 	String jobid1=driver.getSessionId().toString();
-	System.out.println("TEST O.S. Browser Version Jobid=\tFacebookLogin\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1);		
+	//System.out.println("TEST O.S. Browser Version Jobid=\tFacebookLogin\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1);
+	testresult=testresult+"Facebook Login\t"+platform1+"\t"+broswername1+" "+browserversion1+"\thttps://saucelabs.com/tests/"+jobid1+"\n";
 	//***********************************************************//
 
 	//************Click on Facebook button and open new window and login*****************************
@@ -621,6 +632,23 @@ public class PearsonHSCTests {
 			//********************************************************************************
 		//***********************************End of Facebook Test***********************************
 		}
+@AfterClass
+	public static void output() 
+	{
+		 System.out.println(testresult);
+		 File f=new File("Result(Spreadsheet compatible).txt");
+
+	        StringBuffer sb = new StringBuffer("TEST Name\tO.S.\tBrowser\tSauce Lab URL\n");
+	        try{
+	            FileWriter fwriter = new FileWriter(f);
+	            BufferedWriter bwriter = new BufferedWriter(fwriter);
+	            bwriter.write(sb.toString()+testresult);
+	            bwriter.close();
+	         }
+	        catch (Exception e){
+	              e.printStackTrace();
+	         }
+	 }
 
 }
 
