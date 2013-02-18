@@ -132,8 +132,10 @@ public class PearsonHSCTests {
 		WebElement ClickPlayAll = driver.findElement(By.xpath("//button[@class='btn playAll']"));
 		Boolean playalldisplayed=driver.findElement(By.xpath("//button[@class='btn playAll']")).isEnabled();
 		System.out.println("Is Play All Button Enabled="+playalldisplayed);
+		
 		//ClickPlayAll.click();
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
+		
 		String buttonstate = "NotPlayed";
 				while(!buttonstate.equals("Played"))
 				{
@@ -322,9 +324,33 @@ public class PearsonHSCTests {
 
 		//Click on Logout Button
 		driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
+		
+		// Waiting for user to get Logged out.
+					String logout = "Not_logged_out";
+					while(!logout.equals("logged_out"))
+					{
+						try
+						{
+							driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
+							logout = "logged_out";
+							System.out.println("User has been logged out");
+						}
+						catch (NoSuchElementException e)
+						{
+							synchronized (driver)
+							{
+								driver.wait(5000);
 
-		synchronized (driver) {
-			driver.wait(7000);}
+							}
+							System.out.println("Waiting for user to get logged out");
+						}
+			}
+
+//		synchronized (driver) {
+//			driver.wait(7000);}
+		
+				
+		
 		//*******************************************************************************************************
 		//********************************************************End of Test 1***********************************************
 		}
@@ -650,8 +676,30 @@ public class PearsonHSCTests {
 			//Click on Logout Button
 			driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
 
-			synchronized (driver) {
-				driver.wait(10000);}
+			// Waiting for user to get Logged out.
+			String logout = "Not_logged_out";
+			while(!logout.equals("logged_out"))
+			{
+				try
+				{
+					driver.findElement(By.xpath("//*[@id=\"login-button\"]"));
+					logout = "logged_out";
+					System.out.println("User has been logged out");
+				}
+				catch (NoSuchElementException e)
+				{
+					synchronized (driver)
+					{
+						driver.wait(5000);
+
+					}
+					System.out.println("Waiting for user to get logged out");
+				}
+	}
+			
+//			synchronized (driver) {
+//				driver.wait(10000);}
+			
 			//********************************************************************************
 		//***********************************End of Facebook Test***********************************
 		}
