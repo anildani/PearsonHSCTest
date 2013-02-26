@@ -132,10 +132,10 @@ public class PearsonHSCTests {
 		WebElement ClickPlayAll = driver.findElement(By.xpath("//button[@class='btn playAll']"));
 		Boolean playalldisplayed=driver.findElement(By.xpath("//button[@class='btn playAll']")).isEnabled();
 		System.out.println("Is Play All Button Enabled="+playalldisplayed);
-		
+
 		//ClickPlayAll.click();
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
-		
+
 		String buttonstate = "NotPlayed";
 				while(!buttonstate.equals("Played"))
 				{
@@ -156,6 +156,11 @@ public class PearsonHSCTests {
 					}
 		}
 
+		synchronized (driver)
+						{
+							driver.wait(5000);
+
+				}
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
@@ -324,7 +329,7 @@ public class PearsonHSCTests {
 
 		//Click on Logout Button
 		driver.findElement(By.xpath("//*[@id=\"logout-button\"]")).click();
-		
+
 		// Waiting for user to get Logged out.
 					String logout = "Not_logged_out";
 					while(!logout.equals("logged_out"))
@@ -348,9 +353,9 @@ public class PearsonHSCTests {
 
 //		synchronized (driver) {
 //			driver.wait(7000);}
-		
-				
-		
+
+
+
 		//*******************************************************************************************************
 		//********************************************************End of Test 1***********************************************
 		}
@@ -505,6 +510,11 @@ public class PearsonHSCTests {
 				System.out.println("Waiting for Audio to play");
 			}
 		}
+		synchronized (driver)
+						{
+							driver.wait(5000);
+
+				}
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
@@ -696,10 +706,10 @@ public class PearsonHSCTests {
 					System.out.println("Waiting for user to get logged out");
 				}
 	}
-			
+
 //			synchronized (driver) {
 //				driver.wait(10000);}
-			
+
 			//********************************************************************************
 		//***********************************End of Facebook Test***********************************
 		}
