@@ -141,7 +141,7 @@ public class PearsonHSCTests {
 				{
 					try
 					{
-						driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
+						driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li[@class='sm2_playing']"));
 						buttonstate = "Played";
 						System.out.println("Audio is playing");
 					}
@@ -155,12 +155,14 @@ public class PearsonHSCTests {
 						System.out.println("Waiting for Audio to play");
 					}
 		}
-
+/*
 		synchronized (driver)
 						{
 							driver.wait(5000);
 
 				}
+				*/
+				
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
@@ -496,7 +498,7 @@ public class PearsonHSCTests {
 		{
 			try
 			{
-				driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
+				driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li[@class='sm2_playing']"));
 				buttonstate = "Played";
 				System.out.println("Audio is playing");
 			}
@@ -510,11 +512,13 @@ public class PearsonHSCTests {
 				System.out.println("Waiting for Audio to play");
 			}
 		}
+		/*
 		synchronized (driver)
 						{
 							driver.wait(5000);
 
 				}
+				*/
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
