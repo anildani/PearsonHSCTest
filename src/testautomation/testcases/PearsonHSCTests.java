@@ -136,6 +136,7 @@ public class PearsonHSCTests {
 		//ClickPlayAll.click();
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
 
+/*
 		String buttonstate = "NotPlayed";
 				while(!buttonstate.equals("Played"))
 				{
@@ -155,14 +156,14 @@ public class PearsonHSCTests {
 						System.out.println("Waiting for Audio to play");
 					}
 		}
-/*
+*/
 		synchronized (driver)
 						{
-							driver.wait(5000);
+							driver.wait(10000);
 
 				}
-				*/
-				
+
+
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
@@ -493,6 +494,7 @@ public class PearsonHSCTests {
 				//driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
 		//ClickPlayAll.click();
+		/*
 		String buttonstate = "NotPlayed";
 		while(!buttonstate.equals("Played"))
 		{
@@ -512,13 +514,13 @@ public class PearsonHSCTests {
 				System.out.println("Waiting for Audio to play");
 			}
 		}
-		/*
+		*/
 		synchronized (driver)
 						{
-							driver.wait(5000);
+							driver.wait(10000);
 
 				}
-				*/
+
 		//Ensure 'Play All' functionality has launched
 		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
 		String str_class = TheStory.getAttribute("class");
