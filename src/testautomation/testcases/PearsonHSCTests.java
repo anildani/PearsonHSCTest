@@ -159,7 +159,7 @@ public class PearsonHSCTests {
 */
 		synchronized (driver)
 						{
-							driver.wait(10000);
+							driver.wait(20000);
 
 				}
 
@@ -517,7 +517,7 @@ public class PearsonHSCTests {
 		*/
 		synchronized (driver)
 						{
-							driver.wait(10000);
+							driver.wait(20000);
 
 				}
 
