@@ -126,6 +126,7 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/SauceREST.jar</systemPath>
     </dependency>
+    
     <dependency>
       <groupId>testautomation.framework</groupId>
       <artifactId>TestFramework</artifactId>
@@ -137,6 +138,11 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.2</version>
+    </dependency>
+     <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-classworlds</artifactId>
+      <version>2.4</version>
     </dependency>
     <dependency>
       <groupId>maven</groupId>
