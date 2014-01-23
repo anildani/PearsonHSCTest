@@ -19,6 +19,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -43,7 +44,7 @@ public class PearsonHSCTests {
 	@Parameters
 	public static Collection<Object[]> data() {
 		   //Object[][] data = new Object[][] {{"1"},{"2"},{"3"},{"4"},{"5"},{"6"}};
-		  	//Object[][] data = new Object[][] {{"2"},{"3"}};
+		  	 //Object[][] data = new Object[][] {{"2"}};
 		   Object[][] data = new Object[][] {{"2"},{"3"},{"4"},{"6"}};
 		   return Arrays.asList(data);
 	   }
@@ -119,11 +120,11 @@ public class PearsonHSCTests {
 		WebElement Product1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div/span"));
 		String str_prd1 = Product1.getText();
 		//System.out.println("Product_1 = "+str_prd1);
-		AssertionTest.assertjob(driver, str_prd1, "CJ Today, 12/e");
+		AssertionTest.assertjob(driver, str_prd1, "CJ Today, 13/e");
 		//assertEquals("CJ Today, 12/e", str_prd1);
 
 		//Verify Last Product
-		WebElement Product2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div/span"));
+		WebElement Product2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div[5]/div[2]/div/div/span"));
 		String str_prod2 = Product2.getText();
 		//System.out.println("Product_2 = "+str_prod2);
 		AssertionTest.assertjob(driver, str_prod2, "Criminal Law Today, 5/e");
@@ -192,7 +193,7 @@ public class PearsonHSCTests {
 		//*************************************************************//
 
 		//*****Open Product "Criminal Justice Today, 12e" and verify product page************//
-		WebElement flash2 = driver.findElement(By.xpath("//span[text()=\"CJ Today, 12/e\"]"));
+		WebElement flash2 = driver.findElement(By.xpath("//span[text()=\"CJ Today, 13/e\"]"));
 		flash2.click();
 
 		synchronized (driver) {
@@ -202,7 +203,7 @@ public class PearsonHSCTests {
 		WebElement audio3 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[4]/div/div[3]/div[2]/ul/li[3]/a"));
 		String str_aud3 = audio3.getText();
 		System.out.println("Audio_3 text = "+str_aud3);
-		AssertionTest.assertjob(driver, str_aud3, "3 Driving Sell Thru");
+		AssertionTest.assertjob(driver, str_aud3, "3 Digital Story");
 		//assertEquals("3 Driving Sell Thru", str_aud3);
 		//***********************************************************************************//
 
@@ -216,12 +217,12 @@ public class PearsonHSCTests {
 		WebElement questiontext = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div/h2/span"));
 		String str_questiontext = questiontext.getText();
 		System.out.println("Question_1 text = "+str_questiontext);
-		AssertionTest.assertjob(driver, str_questiontext, "What product should you lead with when selling in intro to CJ?");
+		AssertionTest.assertjob(driver, str_questiontext, "What new feature is being added to MyCJLab for CJ Today 13e that wasn't available in 12e?");
 		//assertEquals("What product should you lead with when selling in intro to CJ?", str_questiontext);
 
 
 		//Select Correct Option in Q#1
-		WebElement flash4 = driver.findElement(By.xpath("//span[text()=\"MyCJLab\"]"));
+		WebElement flash4 = driver.findElement(By.xpath("//span[contains(.,'Point')]"));
 		flash4.click();
 
 
@@ -229,9 +230,10 @@ public class PearsonHSCTests {
 			driver.wait(4000);}
 
 		//Verify that green check mark is appearing for correct answer.
-		WebElement CorrectAns = driver.findElement(By.xpath("//span[text()=\"MyCJLab\"]/.."));
+		//WebElement CorrectAns = driver.findElement(By.xpath("//span[text()='Point/Counterpoint Videos ']/.."));
+		WebElement CorrectAns = driver.findElement(By.xpath("//span[contains(.,'Point')]/.."));
 		String str = CorrectAns.getAttribute("class");
-		System.out.println("Selected option (MyCJLab) = "+str);
+		System.out.println("Selected option (Study Plan) = "+str);
 		AssertionTest.assertjob(driver, str, "btn radio-control active correct-ans");
 		//assertEquals("btn radio-control active correct-ans", str);
 
@@ -362,7 +364,7 @@ public class PearsonHSCTests {
 		//*******************************************************************************************************
 		//********************************************************End of Test 1***********************************************
 		}
-	@Test
+	//@Test
 	public void FBHSCTest_Test1() throws Exception {
 
 	//*****Launch Site ****//
@@ -443,198 +445,209 @@ public class PearsonHSCTests {
 			}
 	  //***********************************************************************************************
 
-      //*****Discipline Home Page Checks****//
-		//Verify 1st Discipline
-		WebElement Discipline1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div/div/div/div/span"));
-		String str_disc1 = Discipline1.getText();
-		System.out.println("Discipline_1 = "+str_disc1);
-		AssertionTest.assertjob(driver, str_disc1, "Criminal Justice");
+		//*****Discipline Home Page Checks****//
+			//Verify 1st Discipline is Criminal Justice
+			WebElement Discipline1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div/div/div/div/span"));
+			String str_disc1 = Discipline1.getText();
+			//System.out.println("Discipline_1 = "+str_disc1);
+			AssertionTest.assertjob(driver, str_disc1, "Criminal Justice");
 
 
-		//Verify Last Discipline
-		WebElement Discipline2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div/div[4]/div/div/span"));
-		String str_disc2 = Discipline2.getText();
-		System.out.println("Discipline_2 = "+str_disc2);
-		AssertionTest.assertjob(driver, str_disc2, "Trades");
+			//Verify Last Discipline is Trades
+			WebElement Discipline2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div/div[4]/div/div/span"));
+			String str_disc2 = Discipline2.getText();
+			//System.out.println("Discipline_2 = "+str_disc2);
+			AssertionTest.assertjob(driver, str_disc2, "Trades");
+			//assertEquals("Trades", str_disc2);
+			//*************************************************************//
 
-		synchronized (driver) {
-			driver.wait(5000);
-
-		}
-		//***************************************************
-
-		////*****Open Discipline "Criminal Justice" & verify product home page****//
-		WebElement flash = driver.findElement(By.id("481"));
-		flash.click();
-		synchronized (driver) {
-					driver.wait(5000);
-
-		}
-		WebElement PlayAll = driver.findElement(By.xpath("//*[@id='panel_discipline-home']"));
-		String str_class1 = PlayAll.getAttribute("style");
-		System.out.println("panel_discipline-home Attributes="+str_class1);
-
-		//Verify that product page has launched
-		//Verify 1st Product
-		WebElement Product1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div/span"));
-		String str_prd1 = Product1.getText();
-		System.out.println("Product_1 = "+str_prd1);
-		AssertionTest.assertjob(driver, str_prd1, "CJ Today, 12/e");
-
-		//Verify Last Product
-		WebElement Product2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div[4]/div[2]/div/div/span"));
-		String str_prod2 = Product2.getText();
-		System.out.println("Product_2 = "+str_prod2);
-		AssertionTest.assertjob(driver, str_prod2, "Criminal Law Today, 5/e");
-		//Click on 'Play All'
-		WebElement ClickPlayAll = driver.findElement(By.xpath("//button[@class='btn playAll']"));
-		Boolean playalldisplayed=driver.findElement(By.xpath("//button[@class='btn playAll']")).isEnabled();
-		System.out.println("Is Play All Button Enabled="+playalldisplayed);
-
-				//driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
-		//ClickPlayAll.click();
-		/*
-		String buttonstate = "NotPlayed";
-		while(!buttonstate.equals("Played"))
-		{
-			try
-			{
-				driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li[@class='sm2_playing']"));
-				buttonstate = "Played";
-				System.out.println("Audio is playing");
+			//*****Open Discipline "Criminal Justice" & verify product home page****//
+			WebElement flash = driver.findElement(By.id("481"));
+			flash.click();
+			synchronized (driver) {
+						driver.wait(5000);
 			}
-			catch (NoSuchElementException e)
-			{
-				synchronized (driver)
-				{
-					driver.wait(5000);
+			WebElement PlayAll = driver.findElement(By.xpath("//*[@id='panel_discipline-home']"));
+			String str_class1 = PlayAll.getAttribute("style");
+			System.out.println("panel_discipline-home Attributes="+str_class1);
 
-				}
-				System.out.println("Waiting for Audio to play");
-			}
-		}
-		*/
-		synchronized (driver)
+
+			//Verify that product page has launched
+			//Verify 1st Product
+			WebElement Product1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div/span"));
+			String str_prd1 = Product1.getText();
+			//System.out.println("Product_1 = "+str_prd1);
+			AssertionTest.assertjob(driver, str_prd1, "CJ Today, 13/e");
+			//assertEquals("CJ Today, 12/e", str_prd1);
+
+			//Verify Last Product
+			WebElement Product2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div[5]/div[2]/div/div/span"));
+			String str_prod2 = Product2.getText();
+			//System.out.println("Product_2 = "+str_prod2);
+			AssertionTest.assertjob(driver, str_prod2, "Criminal Law Today, 5/e");
+			//assertEquals("Criminal Law Today, 5/e", str_prod2);
+			//Click 'Play All'
+			WebElement ClickPlayAll = driver.findElement(By.xpath("//button[@class='btn playAll']"));
+			Boolean playalldisplayed=driver.findElement(By.xpath("//button[@class='btn playAll']")).isEnabled();
+			System.out.println("Is Play All Button Enabled="+playalldisplayed);
+
+			//ClickPlayAll.click();
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickPlayAll);
+
+	/*
+			String buttonstate = "NotPlayed";
+					while(!buttonstate.equals("Played"))
+					{
+						try
 						{
-							driver.wait(20000);
+							driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li[@class='sm2_playing']"));
+							buttonstate = "Played";
+							System.out.println("Audio is playing");
+						}
+						catch (NoSuchElementException e)
+						{
+							synchronized (driver)
+							{
+								driver.wait(5000);
 
-				}
+							}
+							System.out.println("Waiting for Audio to play");
+						}
+			}
+	*/
+			synchronized (driver)
+							{
+								driver.wait(20000);
 
-		//Ensure 'Play All' functionality has launched
-		WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
-		String str_class = TheStory.getAttribute("class");
-		System.out.println("State of Play All functionality = "+str_class);
-		AssertionTest.assertjob(driver, str_class, "sm2_playing");
-
-		//Verify audio file name in first product.
-		WebElement audiofilename = driver.findElement(By.xpath("//div/ul/li/a[@class='sm2_link']"));
-		String audiofilename_text = audiofilename.getText();
-		System.out.println("Audio_1 text = "+audiofilename_text);
-		AssertionTest.assertjob(driver, audiofilename_text, "1 The Story");
-
-		//Click on 'Stop All'
-		WebElement ClickStopAll = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button"));
-		ClickStopAll.click();
-
-		synchronized (driver) {
-			driver.wait(2000);}
-
-		//Ensure 'Play All' functionality has stopped
-		WebElement StopAll = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button/span"));
-		String Button_text = StopAll.getText();
-		System.out.println("Button displayed after clicking Stop = "+Button_text);
-		AssertionTest.assertjob(driver, Button_text, "Play All");
-		//**************************************************************************************************
-
-		//*****Open Product "Criminal Justice Today, 12e" and verify product page************//
-		WebElement flash2 = driver.findElement(By.xpath("//span[text()=\"CJ Today, 12/e\"]"));
-		flash2.click();
-
-		synchronized (driver) {
-			driver.wait(4000);}
-
-		//Verify that product page has launched.
-		WebElement audio3 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[4]/div/div[3]/div[2]/ul/li[3]/a"));
-		String str_aud3 = audio3.getText();
-		System.out.println("Audio_3 text = "+str_aud3);
-		AssertionTest.assertjob(driver, str_aud3, "3 Driving Sell Thru");
-		//************************************************************************************//
-
-		//*******Launch Flash Cards and verify************************************************//
-		WebElement flash3 = driver.findElement(By.cssSelector("div.span8 > button"));
-		flash3.click();
-
-		synchronized (driver) {
-			driver.wait(2000);}
-
-		//Verify question text of first question.
-		WebElement questiontext = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div/h2/span"));
-		String str_questiontext = questiontext.getText();
-		System.out.println("Question_1 text = "+str_questiontext);
-		AssertionTest.assertjob(driver, str_questiontext, "What product should you lead with when selling in intro to CJ?");
+					}
 
 
-		//Select Correct Option in Q#1
-		WebElement flash4 = driver.findElement(By.xpath("//span[text()=\"MyCJLab\"]"));
-		flash4.click();
+			//Ensure 'Play All' functionality has launched
+			WebElement TheStory = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/ul/li"));
+			String str_class = TheStory.getAttribute("class");
+			//System.out.println("State of Play All functionality = "+str_class);
+			AssertionTest.assertjob(driver, str_class, "sm2_playing");
+
+			//Verify audio file name in first product.
+			WebElement audiofilename = driver.findElement(By.xpath("//div/ul/li/a[@class='sm2_link']"));
+			String audiofilename_text = audiofilename.getText();
+			//System.out.println("Audio_1 text = "+audiofilename_text);
+			AssertionTest.assertjob(driver, audiofilename_text, "1 The Story");
+
+			//Click on 'Stop All'
+			WebElement ClickStopAll = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button"));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", ClickStopAll);
+			//ClickStopAll.click();
+
+			synchronized (driver) {
+				driver.wait(10000);}
+
+			//Ensure 'Play All' functionality has stopped
+			WebElement StopAll = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[3]/div/div/div/div/button/span"));
+			String Button_text = StopAll.getText();
+			//System.out.println("Button displayed after clicking Stop = "+Button_text);
+			AssertionTest.assertjob(driver, Button_text, "Play All");
+			//*************************************************************//
+
+			//*****Open Product "Criminal Justice Today, 12e" and verify product page************//
+			WebElement flash2 = driver.findElement(By.xpath("//span[text()=\"CJ Today, 13/e\"]"));
+			flash2.click();
+
+			synchronized (driver) {
+				driver.wait(4000);}
+
+			//Verify that product page has launched.
+			WebElement audio3 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[4]/div/div[3]/div[2]/ul/li[3]/a"));
+			String str_aud3 = audio3.getText();
+			System.out.println("Audio_3 text = "+str_aud3);
+			AssertionTest.assertjob(driver, str_aud3, "3 Digital Story");
+			//assertEquals("3 Driving Sell Thru", str_aud3);
+			//***********************************************************************************//
+
+			//*******Launch Flash Cards and verify************************************************//
+
+			WebElement flash3 = driver.findElement(By.cssSelector("div.span8 > button"));
+			flash3.click();
 
 
-		synchronized (driver) {
-			driver.wait(4000);}
-
-		//Verify that green check mark is appearing for correct answer.
-		WebElement CorrectAns = driver.findElement(By.xpath("//span[text()=\"MyCJLab\"]/.."));
-		String str = CorrectAns.getAttribute("class");
-		System.out.println("Selected option (MyCJLab) = "+str);
-		AssertionTest.assertjob(driver, str, "btn radio-control active correct-ans");
+			//Verify question text of first question.
+			WebElement questiontext = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div/h2/span"));
+			String str_questiontext = questiontext.getText();
+			System.out.println("Question_1 text = "+str_questiontext);
+			AssertionTest.assertjob(driver, str_questiontext, "What new feature is being added to MyCJLab for CJ Today 13e that wasn't available in 12e?");
+			//assertEquals("What product should you lead with when selling in intro to CJ?", str_questiontext);
 
 
-		//Click on Next button to move Q#2
-		WebElement flash5 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
-		flash5.click();
+			//Select Correct Option in Q#1
+			WebElement flash4 = driver.findElement(By.xpath("//span[contains(.,'Point')]"));
+			flash4.click();
 
-		synchronized (driver) {
-			driver.wait(5000);}
-		/*
-		//Verify question text of second question.
-		WebElement questiontext1 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div[2]/h2/span"));
-		//WebElement questiontext1 = driver.findElement(By.xpath("//div[@id=\"body-set\"]/div[2]/h2/span"));
-		String str_questiontextone = questiontext1.getText();
-		System.out.println("Question Text2 = "+str_questiontextone);
-		AssertionTest.assertjob(driver, str_questiontextone, "What author from McGraw-Hill should you be targeting?");
-		*/
 
-		//Click on Next button to move Q#3
-		WebElement flash6 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
-		flash6.click();
+			synchronized (driver) {
+				driver.wait(4000);}
 
-		//Waiting
-		synchronized (driver) {
-			driver.wait(2000);}
+			//Verify that green check mark is appearing for correct answer.
+			//WebElement CorrectAns = driver.findElement(By.xpath("//span[text()='Point/Counterpoint Videos ']/.."));
+			WebElement CorrectAns = driver.findElement(By.xpath("//span[contains(.,'Point')]/.."));
+			String str = CorrectAns.getAttribute("class");
+			System.out.println("Selected option (Study Plan) = "+str);
+			AssertionTest.assertjob(driver, str, "btn radio-control active correct-ans");
+			//assertEquals("btn radio-control active correct-ans", str);
 
-		//Click on Next button to move Q#4
-		WebElement flash7 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
-		flash7.click();
+			//Click on Next button to move Q#2
+			WebElement flash5 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
+			flash5.click();
 
-		//Waiting
-		synchronized (driver) {
-			driver.wait(2000);}
+			//Waiting for Question2 to appear
+			synchronized (driver)
+			{
+				driver.wait(5000);
+			}
 
-		//Click on Next button to move Q#5
-		WebElement flash8 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
-		flash8.click();
+			/*
+			//Verify question text of second question.
+			WebElement questiontext111 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div[2]/div[2]/h2/span"));
+			//WebElement questiontext1 = driver.findElement(By.xpath("//div[@id=\"body-set\"]/div[2]/h2/span"));
+			String str_questiontextone111 = questiontext111.getText();
+			System.out.println("Question Text2 = "+str_questiontextone111);
+			AssertionTest.assertjob(driver, str_questiontextone111, "What author from McGraw-Hill should you be targeting?");
+			*/
 
-		//Waiting
-		synchronized (driver) {
-			driver.wait(2000);}
+			//Click on Next button to move Q#3
+			WebElement flash6 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
+			flash6.click();
 
-		//Verify question number for Question5
-		WebElement questiontext2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div/div/div/h4"));
-		String str_questiontext2 = questiontext2.getText();
-		System.out.println("Question_5 number = "+str_questiontext2);
-		AssertionTest.assertjob(driver, str_questiontext2, "Question 5 of 5");
-		//**********************************************************************************
+			//Waiting
+			synchronized (driver) {
+				driver.wait(2000);}
+
+			//Click on Next button to move Q#4
+			WebElement flash7 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
+			flash7.click();
+
+			//Waiting
+			synchronized (driver) {
+				driver.wait(2000);}
+
+			//Click on Next button to move Q#5
+			WebElement flash8 = driver.findElement(By.xpath("//button[text()=\"Next\"]"));
+			flash8.click();
+
+			//Waiting
+			synchronized (driver) {
+				driver.wait(2000);}
+
+			//Verify question number for Question5
+			WebElement questiontext2 = driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[5]/div[2]/div/div[2]/div/div/div/div/h4"));
+			String str_questiontext2 = questiontext2.getText();
+			System.out.println("Question_5 number = "+str_questiontext2);
+			AssertionTest.assertjob(driver, str_questiontext2, "Question 5 of 5");
+
+			//Waiting
+			synchronized (driver) {
+				driver.wait(3000);}
+
+			//**************************************************************************************************//
 
 		//*************Open Profile Page and browser discipline*********//
 		//Clicking on Profile Icon
